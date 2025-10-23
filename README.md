@@ -1,35 +1,47 @@
-# 🎯 Simple RAGAS Evaluation with EPAM DIAL
+# RAGAS Evaluation Framework for EPAM DIAL
 
-A comprehensive toolkit for evaluating Retrieval-Augmented Generation (RAG) systems using RAGAS (Retrieval-Augmented Generation Assessment) metrics with EPAM DIAL models.
+A demonstration toolkit for comprehensive evaluation of Retrieval-Augmented Generation (RAG) systems using RAGAS (Retrieval-Augmented Generation Assessment) metrics integrated with EPAM DIAL infrastructure.
 
-## 📋 Overview
+> **⚠️ Educational Purpose Only**: This framework is designed for learning, understanding, and demonstration purposes. It is not intended for production use without proper validation and customization.
 
-This project provides a complete solution for evaluating RAG systems using industry-standard RAGAS metrics. It integrates seamlessly with EPAM DIAL's Azure OpenAI endpoints to provide accurate and reliable evaluation results.
+## Overview
 
-**🔒 Access Requirements:**
-- EPAM VPN connection (required for DIAL API access)
-- Valid EPAM DIAL API key
-- Access to EPAM's internal AI infrastructure
+This demonstration framework showcases evaluation capabilities for RAG systems using industry-standard RAGAS metrics. The solution integrates with EPAM DIAL's Azure OpenAI infrastructure to provide educational examples and learning resources for RAG evaluation methodologies.
 
-## 🚀 Features
+### Prerequisites
 
-- **RAGAS Integration**: Complete implementation of RAGAS evaluation metrics
-- **EPAM DIAL Support**: Native integration with EPAM DIAL Azure OpenAI endpoints
-- **LangChain Compatibility**: Wrapper functions for seamless LangChain integration
-- **Comprehensive Metrics**: Context Recall, Context Precision, Faithfulness, and Answer Correctness
-- **Easy Setup**: Simple configuration and quick start guide
-- **Results Export**: CSV export for further analysis and reporting
+- **EPAM VPN Connection**: Required for accessing DIAL API endpoints
+- **Valid EPAM DIAL API Key**: Authentication credential for API access
+- **EPAM Internal Network Access**: Access to EPAM's AI infrastructure
 
-## 📊 RAGAS Metrics Evaluated
+## Key Features
 
-| Metric | Description | Range |
-|--------|-------------|-------|
-| **Context Recall** | How complete is the retrieved context? | 0-1 |
-| **Context Precision** | How relevant is the retrieved context? | 0-1 |
-| **Faithfulness** | Is the answer grounded in the context? | 0-1 |
-| **Answer Correctness** | How accurate is the answer compared to ground truth? | 0-1 |
+- **Educational RAGAS Implementation**: Complete demonstration of industry-standard evaluation metrics
+- **EPAM DIAL Integration**: Example integration with EPAM DIAL Azure OpenAI endpoints
+- **LangChain Compatibility**: Learning examples with LangChain ecosystem integration
+- **Multi-Metric Demonstration**: Context Recall, Context Precision, Faithfulness, and Answer Correctness
+- **Learning Configuration**: Simplified setup for educational purposes
+- **Results Export**: CSV export functionality for analysis and learning workflows
 
-## 🛠️ Installation
+## Evaluation Metrics
+
+The framework implements the following RAGAS evaluation metrics:
+
+| Metric | Description | Score Range |
+|--------|-------------|-------------|
+| **Context Recall** | Measures completeness of retrieved context relative to ground truth | 0.0 - 1.0 |
+| **Context Precision** | Evaluates relevance of retrieved context to the query | 0.0 - 1.0 |
+| **Faithfulness** | Assesses whether generated answers are grounded in provided context | 0.0 - 1.0 |
+| **Answer Correctness** | Compares generated answers against ground truth for accuracy | 0.0 - 1.0 |
+
+## Installation
+
+### Prerequisites
+- Python 3.8 or higher
+- EPAM VPN connection
+- Valid EPAM DIAL API credentials
+
+### Setup Instructions
 
 1. **Clone the repository**:
    ```bash
@@ -42,7 +54,7 @@ This project provides a complete solution for evaluating RAG systems using indus
    pip install -r requirements.txt
    ```
 
-3. **Set up environment variables**:
+3. **Configure environment variables**:
    Create a `.env` file in the project root:
    ```env
    DIAL_API_KEY=your_epam_dial_api_key
@@ -50,19 +62,21 @@ This project provides a complete solution for evaluating RAG systems using indus
    API_VERSION=2024-02-01
    ```
 
-   **⚠️ Important Notes:**
-   - This project uses **EPAM DIAL API keys** and requires **EPAM VPN connection**
-   - You must be connected to EPAM's VPN to access the DIAL endpoints
-   - If you want to use your own API keys, modify the configuration in `utils/langchain_wrappers.py` and `utils/model_explorer.py`
+### Configuration Notes
 
-## 🎮 Quick Start
+- **Educational Purpose**: This framework is designed for learning and demonstration purposes
+- **EPAM DIAL Integration**: Configured for EPAM DIAL infrastructure for educational examples
+- **VPN Requirement**: EPAM VPN connection is mandatory for API access
+- **Custom Configuration**: To use alternative API keys, modify configuration files in the `utils/` directory
 
-### Option 1: Jupyter Notebook (Recommended)
-1. Open `rag-eval-demo.ipynb` in Jupyter
-2. Run all cells to see a complete evaluation example
-3. Results will be saved to `ragas_evaluation_results.csv`
+## Quick Start
 
-### Option 2: Python Script
+### Interactive Evaluation (Recommended)
+1. Launch Jupyter Notebook and open `rag-eval-demo.ipynb`
+2. Execute all cells to run a complete evaluation workflow
+3. Results are automatically exported to `ragas_evaluation_results.csv`
+
+### Programmatic Evaluation
 ```python
 from utils import create_ragas_dataset, create_langchain_llm, create_langchain_embeddings
 from ragas import evaluate
@@ -186,7 +200,25 @@ for i in range(0, len(dataset), batch_size):
     # Process batch results
 ```
 
-## 🔍 Troubleshooting
+## Learning Objectives
+
+This demonstration framework helps you understand:
+
+1. **RAGAS Metrics Implementation**: How to implement and configure RAGAS evaluation metrics
+2. **EPAM DIAL Integration**: Connecting to EPAM's AI infrastructure for evaluation
+3. **LangChain Wrappers**: Creating compatible wrappers for different AI services
+4. **Evaluation Workflows**: End-to-end evaluation processes for RAG systems
+5. **Results Analysis**: Interpreting and analyzing evaluation results
+
+## Next Steps for Learning
+
+1. **Experiment with Datasets**: Replace sample data with your own RAG system examples
+2. **Explore Additional Metrics**: Implement additional RAGAS metrics for comprehensive evaluation
+3. **Scale Evaluation**: Practice batch processing techniques for larger datasets
+4. **Customize Configuration**: Modify the framework for different AI service providers
+5. **Build Production Systems**: Use learnings to develop production-ready evaluation pipelines
+
+## Troubleshooting
 
 ### Common Issues
 
@@ -206,33 +238,35 @@ import logging
 logging.basicConfig(level=logging.DEBUG)
 ```
 
-## 📚 Resources
+## Additional Resources
 
-- [RAGAS Documentation](https://docs.ragas.io/)
-- [EPAM DIAL Documentation](https://dial.epam.com/)
-- [LangChain Azure Integration](https://python.langchain.com/docs/integrations/llms/azure_openai)
-- [HuggingFace Datasets](https://huggingface.co/docs/datasets/)
+- [RAGAS Documentation](https://docs.ragas.io/) - Official RAGAS framework documentation
+- [EPAM DIAL Documentation](https://dial.epam.com/) - EPAM DIAL platform information
+- [LangChain Azure Integration](https://python.langchain.com/docs/integrations/llms/azure_openai) - LangChain Azure OpenAI integration guide
+- [HuggingFace Datasets](https://huggingface.co/docs/datasets/) - Dataset handling documentation
 
-## 🤝 Contributing
+## Contributing
+
+Contributions to this educational framework are welcome. Please follow these steps:
 
 1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
+2. Create a feature branch (`git checkout -b feature/educational-enhancement`)
+3. Commit your changes (`git commit -m 'Add educational enhancement'`)
+4. Push to the branch (`git push origin feature/educational-enhancement`)
 5. Open a Pull Request
 
-## 📄 License
+## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This educational project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
-- [RAGAS](https://github.com/explodinggradients/ragas) for the evaluation framework
-- [EPAM DIAL](https://dial.epam.com/) for providing the AI infrastructure
-- [LangChain](https://langchain.com/) for the integration framework
+- [RAGAS](https://github.com/explodinggradients/ragas) for providing the evaluation framework
+- [EPAM DIAL](https://dial.epam.com/) for providing access to AI infrastructure
+- [LangChain](https://langchain.com/) for the integration framework and ecosystem
 
 ---
 
-**Happy Evaluating! 🎉**
+**Educational Framework for RAG Evaluation**
 
-For questions or support, please open an issue or contact the development team.
+This demonstration toolkit is designed for learning and understanding RAG evaluation methodologies. For questions or support, please open an issue or contact the development team.
